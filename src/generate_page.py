@@ -48,8 +48,8 @@ def generate_page(from_path, template_path, dest_path, BASEPATH):
     title = extract_title(markdown=source)
     html = template.replace("{{ Title }}", title)
     html = html.replace("{{ Content }}", content)
-    html = html.replace('href="/', 'href="{BASEPATH}')
-    html = html.replace('src="/', 'src="{BASEPATH}')
+    html = html.replace('href="/', f'href="{BASEPATH}')
+    html = html.replace('src="/', f'src="{BASEPATH}')
 
     with open(os.path.join(os.curdir,dest_path), "w") as output:
         output.write(html)
